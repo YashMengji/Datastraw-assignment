@@ -32,6 +32,13 @@ class WebhookPayload(BaseModel):
     customer: WebhookCustomer
     message: WebhookMessage
 
+    @field_validator("timestamp")
+    @classmethod
+    def timestamp_must_include_timezone(cls, value: datetime) -> datetime:
+        if value.tzinfo is None or value.utcoffset() is None:
+            raise ValueError("Timestamp must include a timezone")
+        return value
+
 
 class CustomerMessageRequest(BaseModel):
     customer: WebhookCustomer
