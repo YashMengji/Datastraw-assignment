@@ -11,10 +11,12 @@ class Settings(BaseSettings):
 
     app_env: str = "development"
     database_url: str = "sqlite+aiosqlite:///./verdant.db"
-    session_secret: str = "development-only-change-me"
+    session_secret: str = Field(
+        default="development-only-change-me-at-least-32-characters", min_length=32
+    )
     session_hours: int = 8
 
-    agent_email: EmailStr = "agent@verdant.test"
+    agent_email: EmailStr = "agent@verdant.co"
     agent_password: str = "ChangeMe123!"
     agent_name: str = "Verdant Support"
 

@@ -34,7 +34,7 @@ function initials(name: string) {
 }
 
 function LoginPanel({ onLogin }: { onLogin: (agent: Agent) => void }) {
-  const [email, setEmail] = useState("agent@verdant.test");
+  const [email, setEmail] = useState("agent@verdant.co");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);

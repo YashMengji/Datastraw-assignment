@@ -45,7 +45,7 @@ async def database():
     async with TestingSession() as session:
         session.add(
             Agent(
-                email="agent@verdant.test",
+                email="agent@verdant.co",
                 display_name="Verdant Support",
                 password_hash=hash_password("test-password"),
             )
@@ -139,7 +139,7 @@ async def test_full_agent_approval_flow_hides_drafts_from_customer(client: Async
 
     login = await client.post(
         "/api/auth/login",
-        json={"email": "agent@verdant.test", "password": "test-password"},
+        json={"email": "agent@verdant.co", "password": "test-password"},
     )
     assert login.status_code == 200
 
@@ -190,7 +190,7 @@ async def test_ai_failure_is_persisted_and_retryable(client: AsyncClient):
 
     await client.post(
         "/api/auth/login",
-        json={"email": "agent@verdant.test", "password": "test-password"},
+        json={"email": "agent@verdant.co", "password": "test-password"},
     )
     inbox = (await client.get("/api/agent/conversations")).json()
     detail = (await client.get(f"/api/agent/conversations/{inbox[0]['id']}")).json()
