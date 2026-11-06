@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { AgentView } from "./components/AgentView";
 import { CustomerView } from "./components/CustomerView";
 import type { ViewMode } from "./types";
 
@@ -51,14 +52,7 @@ export default function App() {
       {mode === "customer" ? (
         <CustomerView />
       ) : (
-        <main className="mx-auto grid min-h-[70vh] max-w-7xl place-items-center px-4 text-center">
-          <div>
-            <p className="eyebrow">Agent workspace</p>
-            <h1 className="mt-2 text-3xl font-semibold text-emerald-950">
-              Sign-in and review tools are loading next.
-            </h1>
-          </div>
-        </main>
+        <AgentView />
       )}
     </div>
   );
