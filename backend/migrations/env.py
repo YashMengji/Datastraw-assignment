@@ -1,4 +1,5 @@
 import asyncio
+import sys
 from logging.config import fileConfig
 
 from alembic import context
@@ -44,7 +45,11 @@ async def run_async_migrations() -> None:
         await connection.run_sync(do_run_migrations)
     await engine.dispose()
 
-
+if sys.platform == "win32":
+    asyncio.set_event_loop_policy(
+        asyncio.WindowsSelectorEventLoopPolicy()
+    )
+    
 def run_migrations_online() -> None:
     asyncio.run(run_async_migrations())
 

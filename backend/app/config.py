@@ -12,15 +12,15 @@ class Settings(BaseSettings):
     app_env: str = "development"
     database_url: str = "sqlite+aiosqlite:///./verdant.db"
     session_secret: str = Field(
-        default="development-only-change-me-at-least-32-characters", min_length=32
+        default="NzX1LEVm20boZQjd8FhLAO9Fd05WjHIfDR5WqR20/RM=", min_length=32
     )
     session_hours: int = 8
 
     agent_email: EmailStr = "agent@verdant.co"
-    agent_password: str = "ChangeMe123!"
+    agent_password: str = "Agent123!"
     agent_name: str = "Verdant Support"
 
-    webhook_secret: str = "verdant-demo-secret-2026"
+    webhook_secret: str = "LJUOOyStDJkQfl2UbUaA2B3w+mHYTPl1t75F33D3AkM="
     brand_id: str = "verdant-co"
 
     gemini_api_key: str = ""
