@@ -20,17 +20,10 @@ In another terminal:
 
 ```bash
 cd frontend
-npm ci
 npm run dev
 ```
 
-Open `http://localhost:5173`. The agent email defaults to `agent@verdant.co`; its password is the `AGENT_PASSWORD` value. To test the signed webhook directly:
-
-```bash
-node scripts/send-webhook.mjs http://localhost:8000
-```
-
-Run verification with `pytest -q` and, inside `frontend`, `npm run typecheck && npm test && npm run build`.
+Open `http://localhost:5173`. The agent email defaults to `agent@verdant.co`; its password is the `AGENT_PASSWORD` value.
 
 ## Deployment
 
